@@ -11,7 +11,6 @@ cityInput.addEventListener("submit", (e) => {
     "http://api.weatherapi.com/v1/forecast.json?key=a0456f4d5b2f4d4497244209242401&q=" +
     newCity +
     "&days=7&aqi=no&alerts=yes";
-  console.log(input[0].value);
 
   fetch(myUrl, {
     mode: "cors",
@@ -27,11 +26,11 @@ cityInput.addEventListener("submit", (e) => {
     const CONTENT = document.querySelector(".content");
     CONTENT.innerHTML = "";
     forecasts.forEach((element) => {
-      console.log(element.date, element.day.condition.text, element);
-      let datess = new Date();
-      let dateString = datess.toString().substring(0, 15);
+      let datess = new Date(element.date);
+      let datee = datess.toDateString().substring(0, 15);
+
       renderDailyForecast(
-        dateString,
+        datee,
         element.day.condition.text,
         element.day.condition.icon,
         element.astro.moon_phase
@@ -39,7 +38,7 @@ cityInput.addEventListener("submit", (e) => {
     });
   }
 
-  function renderDailyForecast(dateStuff, conditionStuff, icon, moon_phase) {
+  function renderDailyForecast(date, condition, icon, moon_phase) {
     let dayDiv = document.createElement("div");
     let contDiv = document.createElement("div");
     let dates = document.createElement("p");
@@ -47,7 +46,7 @@ cityInput.addEventListener("submit", (e) => {
     let moon = document.createElement("div");
     let img = document.createElement("img");
     img.src = icon;
-    img.alt = conditionStuff;
+    img.alt = condition;
 
     let content = document.querySelector(".content");
 
@@ -58,8 +57,8 @@ cityInput.addEventListener("submit", (e) => {
     conditions.classList.add("condish");
     moon.classList.add("moon");
 
-    dates.innerText = dateStuff + "  " + input[0].value + ":";
-    conditions.innerText = conditionStuff;
+    dates.innerText = date + "  " + input[0].value + ":";
+    conditions.innerText = condition;
     moon.innerHTML = "Moon Phase: " + moon_phase;
 
     content.append(dayDiv);
