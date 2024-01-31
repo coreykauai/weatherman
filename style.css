@@ -1,0 +1,74 @@
+body {
+  font-size: 50px;
+  background-image: url(rainbow.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Raleway", sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dishDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.theDay {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 550px;
+  margin: 30px;
+  border: 2px solid rgba(177, 193, 255, 0.226);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgb(26, 110, 246);
+}
+
+.condish {
+  margin: 0;
+}
+
+.date {
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.dishDiv {
+  width: 100%;
+  height: fit-content;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+}
+
+.moon {
+  font-size: 30px;
+  color: rgb(32, 55, 89);
+  text-shadow: 0px 0px 20px rgb(125, 125, 249);
+  margin-top: 10px;
+}
+
+#cityInput {
+  height: 40px;
+  font-size: 20px;
+  border-radius: 0.2rem;
+  border: none;
+}
+
+#City {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.location {
+  margin: 10px;
+}
